@@ -36,7 +36,7 @@ const ShoppingListItem = ({ items, addItemToCart, cmpType, removeItem }) => {
                         (
                             <div>
                                 <input type='number' value={items.quantity} nim='0' onChange={(event) => addRemoveItem(event)} />
-                                <button className='cart-button' onClick={() => removeItemFromCart(items)}><i className="fa fa fa-trash" aria-hidden="true"></i></button>
+                                <button className='cart-button' onClick={() => removeItemFromCart(items)}>Remove Item</button>
                             </div>
                         )
                 }
