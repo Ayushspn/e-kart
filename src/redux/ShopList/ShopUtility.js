@@ -15,7 +15,6 @@ export const  apllyUtilityRange = (shopList, range) => {
 
 
 export const  apllyUtilityAdditem = (cartItems, addItem, parameter) => {
-    console.log(addItem, parameter)
     const copyCartItems = [...cartItems]
     const existingItem = copyCartItems.findIndex((shopListItem) => shopListItem.id === addItem.id )
 
@@ -46,7 +45,6 @@ export const  apllyUtilityTotalItemCount = (addItem) => {
 
 
 export const removeItem = (cartItems, removedItem) => {
-    console.log(removedItem)
     const copyCartItems = [...cartItems]
     const existingItem = copyCartItems.findIndex((shopListItem) => shopListItem.id === removedItem.id )
 
@@ -59,7 +57,6 @@ export const removeItem = (cartItems, removedItem) => {
 
 
 export const calculateTotlPriceDiscount = (cartItems, removedItem) => {
-    console.log(removedItem)
     const copyCartItems = [...cartItems]
     const existingItem = copyCartItems.findIndex((shopListItem) => shopListItem.id === removedItem.id )
 
@@ -68,4 +65,21 @@ export const calculateTotlPriceDiscount = (cartItems, removedItem) => {
     }
     
     return copyCartItems
+}
+
+export const sortByPassedParameter = (shopList, action) => {
+    const copyShopList = [...shopList];
+    copyShopList.sort(function(previousItem, nextItem) {
+    let sortedItem;
+    if(action.payload === 'HIGH_TO_LOW' || action.payload === 'LOW_TO_HIGH'){
+        action.payload === 'HIGH_TO_LOW' ? sortedItem = parseFloat(nextItem.price) - parseFloat(previousItem.price) 
+    : sortedItem = parseFloat(previousItem.price) - parseFloat(nextItem.price) 
+    }
+    if(action.payload === 'SORT_BY_DISCOUNT'){
+        sortedItem = parseFloat(nextItem.discount) - parseFloat(previousItem.discount)  
+    }
+    
+    return sortedItem;
+});
+return copyShopList;
 }

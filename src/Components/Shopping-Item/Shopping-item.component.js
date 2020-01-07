@@ -3,7 +3,6 @@ import './shopping-item.styles.scss'
 import { connect } from 'react-redux';
 import { addedItem, removedItem } from '../../redux/ShopList/ShopActionCreators';
 const ShoppingListItem = ({ items, addItemToCart, cmpType, removeItem }) => {
-    console.log(items);
     const { id, name, price, img_url, category, discount } = items;
 
     const addRemoveItem = (event) => {

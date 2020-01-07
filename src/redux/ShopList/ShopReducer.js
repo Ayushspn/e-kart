@@ -3,6 +3,7 @@ import {
     apllyUtilityRange, apllyUtilityAdditem,
     apllyUtilityTotalItemCount,
     removeItem,
+    sortByPassedParameter,
     calculateTotlPriceDiscount
 } from './ShopUtility';
 const INITIALSTATE = {
@@ -60,22 +61,11 @@ const shopReducer = (state = INITIALSTATE, action) => {
             }
 
             case actionTypes.SORT_ITEM:
-                const shopList = [...state.ShopItemList];
-                shopList.sort(function(previousItem, nextItem) {
-                    let sortedItem;
-                    if(action.payload === 'HIGH_TO_LOW' || action.payload === 'LOW_TO_HIGH'){
-                        action.payload === 'HIGH_TO_LOW' ? sortedItem = parseFloat(nextItem.price) - parseFloat(previousItem.price) 
-                    : sortedItem = parseFloat(previousItem.price) - parseFloat(nextItem.price) 
-                    }
-                    if(action.payload === 'SORT_BY_DISCOUNT'){
-                        sortedItem = parseFloat(nextItem.discount) - parseFloat(previousItem.discount)  
-                    }
-                    
-                    return sortedItem;
-                });
+                const shopList = state.ShopItemList;
+                const sortedShopList = sortByPassedParameter(shopList, action);
                 return {
                     ...state,
-                    ShopItemList :  shopList
+                    ShopItemList :  sortedShopList
                 }
     
 

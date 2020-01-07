@@ -7,9 +7,9 @@ import {sortItems} from '../../../redux/ShopList/ShopActionCreators';
 const PriceSort = ({sortShopItems}) => {
     return (
         <div>
-            <button onClick = {() => sortShopItems('HIGH_TO_LOW')}> SORT BY PRICE HIGH TO LOW</button>
-            <button onClick = {() => sortShopItems('LOW_TO_HIGH')}> SORT BY PRICE LOW TO HIGH</button>
-            <button onClick = {() => sortShopItems('SORT_BY_DISCOUNT')}> SORT BY DISCOUNT</button>
+            <button onClick = {() => sortShopItems('HIGH_TO_LOW')}> PRICE HIGH TO LOW</button>
+            <button onClick = {() => sortShopItems('LOW_TO_HIGH')}> PRICE LOW TO HIGH</button>
+            <button onClick = {() => sortShopItems('SORT_BY_DISCOUNT')}> DISCOUNT</button>
         </div>
     )
 }
