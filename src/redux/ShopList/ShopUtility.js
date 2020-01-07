@@ -33,16 +33,32 @@ export const  apllyUtilityAdditem = (cartItems, addItem, parameter) => {
 
 
 export const  apllyUtilityTotalItemCount = (addItem) => {
-    let quantity = 0
+    let quantity = 0;
+    let totalPrice = 0;
+    let totalDiscount = 0;
     addItem.reduce((accumulatedItems, items) => {
         quantity = quantity + items.quantity;
+        totalPrice = totalPrice + items.quantity* items.price;
+        totalDiscount = totalDiscount + (items.price/100)* items.discount;
     }, 0)
-
-    return quantity;
+    return {quantity, totalPrice, totalDiscount};
 }
 
 
 export const removeItem = (cartItems, removedItem) => {
+    console.log(removedItem)
+    const copyCartItems = [...cartItems]
+    const existingItem = copyCartItems.findIndex((shopListItem) => shopListItem.id === removedItem.id )
+
+    if(existingItem >-1){
+        copyCartItems.splice(existingItem, 1);
+    }
+    
+    return copyCartItems
+}
+
+
+export const calculateTotlPriceDiscount = (cartItems, removedItem) => {
     console.log(removedItem)
     const copyCartItems = [...cartItems]
     const existingItem = copyCartItems.findIndex((shopListItem) => shopListItem.id === removedItem.id )

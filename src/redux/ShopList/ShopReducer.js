@@ -1,10 +1,17 @@
 import * as actionTypes from './ShopList.action.types'
-import { apllyUtilityRange, apllyUtilityAdditem, apllyUtilityTotalItemCount, removeItem } from './ShopUtility';
+import {
+    apllyUtilityRange, apllyUtilityAdditem,
+    apllyUtilityTotalItemCount,
+    removeItem,
+    calculateTotlPriceDiscount
+} from './ShopUtility';
 const INITIALSTATE = {
     ShopItemList: [],
     copyShopItemList: [],
-    cartItems: [], 
-    cartItemCount : 0
+    cartItems: [],
+    cartItemCount: 0,
+    totalPrice: 0,
+    totalDiscount: 0
 }
 
 const shopReducer = (state = INITIALSTATE, action) => {
@@ -27,27 +34,31 @@ const shopReducer = (state = INITIALSTATE, action) => {
         case actionTypes.ADD_ITEM:
             let countItems = 0;
             const addItemToCart = apllyUtilityAdditem(state.cartItems, action.value.cartItem, action.value.parameter);
-            if(addItemToCart && addItemToCart.length > 0){
-                countItems =  apllyUtilityTotalItemCount(addItemToCart);
+            if (addItemToCart && addItemToCart.length > 0) {
+                countItems = apllyUtilityTotalItemCount(addItemToCart);
             }
             return {
                 ...state,
-                cartItems : addItemToCart, 
-                cartItemCount : countItems
+                cartItems: addItemToCart,
+                cartItemCount: countItems.quantity,
+                cartItemTotalPrice: countItems.totalPrice,
+                cartItemTotalDiscount: countItems.totalDiscount
             }
 
-            case actionTypes.REMOVE_ITEM:
-                let countRemoveItems = 0;
-                const removedItems = removeItem(state.cartItems, action.payload);
-                if(removedItems && removedItems.length > 0){
-                    countRemoveItems =  apllyUtilityTotalItemCount(removedItems);
-                }
-                return {
-                    ...state,
-                    cartItems : removedItems, 
-                    cartItemCount : countRemoveItems
-                }
-    
+        case actionTypes.REMOVE_ITEM:
+            let countRemoveItems = 0;
+            const removedItems = removeItem(state.cartItems, action.payload);
+            if (removedItems && removedItems.length > 0) {
+                countRemoveItems = apllyUtilityTotalItemCount(removedItems);
+            }
+            return {
+                ...state,
+                cartItems: removedItems,
+                cartItemCount: countRemoveItems.quantity,
+                cartItemTotalPrice: countRemoveItems.totalPrice,
+                cartItemTotalDiscount: countRemoveItems.totalDiscount
+            }
+
 
         default:
             return state
