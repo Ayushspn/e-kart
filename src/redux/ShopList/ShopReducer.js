@@ -26,8 +26,7 @@ const shopReducer = (state = INITIALSTATE, action) => {
 
         case actionTypes.ADD_ITEM:
             let countItems = 0;
-            const addItemToCart = apllyUtilityAdditem(state.cartItems, action.payload);
-            console.log(addItemToCart)
+            const addItemToCart = apllyUtilityAdditem(state.cartItems, action.value.cartItem, action.value.parameter);
             if(addItemToCart && addItemToCart.length > 0){
                 countItems =  apllyUtilityTotalItemCount(addItemToCart);
             }

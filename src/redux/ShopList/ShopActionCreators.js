@@ -24,7 +24,7 @@ export const ApplyFilter = (filterRange) => ({
   payload: filterRange
 })
 
-export const addedItem = (cartItem) => ({
+export const addedItem = (cartItem, parameter) => ({
   type: actionTypes.ADD_ITEM,
-  payload: cartItem
+  value: {cartItem, parameter}
 })

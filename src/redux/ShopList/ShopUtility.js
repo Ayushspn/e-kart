@@ -14,7 +14,8 @@ export const  apllyUtilityRange = (shopList, range) => {
 
 
 
-export const  apllyUtilityAdditem = (cartItems, addItem) => {
+export const  apllyUtilityAdditem = (cartItems, addItem, parameter) => {
+    console.log(addItem, parameter)
     const copyCartItems = [...cartItems]
     const existingItem = copyCartItems.findIndex((shopListItem) => shopListItem.id === addItem.id )
 
@@ -24,7 +25,7 @@ export const  apllyUtilityAdditem = (cartItems, addItem) => {
     }
     else {
         const cartItemsObj = {...copyCartItems[existingItem]};
-        cartItemsObj.quantity = cartItemsObj.quantity + 1;
+        parameter === 'addItem' ? cartItemsObj.quantity = cartItemsObj.quantity + 1 : cartItemsObj.quantity ===1  ? cartItemsObj.quantity =1 : cartItemsObj.quantity = cartItemsObj.quantity -1
         copyCartItems[existingItem] = cartItemsObj;
     }
     return copyCartItems
