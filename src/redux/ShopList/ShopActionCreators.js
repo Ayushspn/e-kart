@@ -33,3 +33,9 @@ export const removedItem = (cartItem) => ({
   type: actionTypes.REMOVE_ITEM,
   payload : cartItem
 })
+
+
+export const sortItems = (parameter) => ({
+  type: actionTypes.SORT_ITEM,
+  payload : parameter
+})
