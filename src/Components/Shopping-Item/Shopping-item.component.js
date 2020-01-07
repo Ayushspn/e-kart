@@ -20,7 +20,7 @@ const ShoppingListItem = ({ items, addItemToCart, cmpType, removeItem }) => {
 
 
     return (
-        <div className="card">
+        <div className="card col-md-3 col-lg-3">
             <img src={img_url} alt='produc-image' style={{ width: '100%' }} />
             <div className="container">
                 <h4><b>{name}</b></h4>

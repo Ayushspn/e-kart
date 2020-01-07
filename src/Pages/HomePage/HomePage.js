@@ -7,8 +7,8 @@ import { connect } from 'react-redux';
 import { fetchShopList, ApplyFilter } from '../../redux/ShopList/ShopActionCreators';
 
 const HomePage = ({ getShoppingList, filterShoppingList }) => {
-    const [minValue, setMinValue] = useState(0);
-    const [maxValue, setMaxValue] = useState(0);
+    const [minValue, setMinValue] = useState(100);
+    const [maxValue, setMaxValue] = useState(10000);
     useEffect(() => {
         getShoppingList()
     }, [])
@@ -30,8 +30,9 @@ const HomePage = ({ getShoppingList, filterShoppingList }) => {
 
     return (
 
-        <div style={{ display: 'flex', marginTop: '20px' }}>
-            <div style={{ width: '20vw' }}>
+        <div className ='row main-container'>
+            <div className ='col-md-3 col-lg-3'>
+                <div style = {{'text-align' : 'center'}}>Filter</div>
                 <FilterShoppingList
                     minRangeChangeHandler={(event) => getMinRangeValue(event)}
                     minValue={minValue}
@@ -40,7 +41,7 @@ const HomePage = ({ getShoppingList, filterShoppingList }) => {
                 ></FilterShoppingList>
                 <button onClick={() => applyRangeFilter()}> Apply Range</button>
             </div>
-            <div style={{ width: '80vw' }}>
+            <div className ='col-md-9 col-lg-9'>
                 <ShoppingList></ShoppingList>
             </div>
         </div>

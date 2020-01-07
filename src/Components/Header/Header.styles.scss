@@ -42,8 +42,9 @@
     height: 20px;
     display: inline-block;
     position: absolute;
-    top: 22px;
+    top: 11px;
     font-size: 16px;
+    right: 7px;
 }
 
 .cart-button{
@@ -53,4 +54,9 @@
   &:hover{
     cursor: pointer;
   }
+}
+
+.main-container{
+  max-width: 79rem;
+  margin: 0 auto;
 }

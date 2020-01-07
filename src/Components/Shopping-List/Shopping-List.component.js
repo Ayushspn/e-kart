@@ -5,14 +5,16 @@ import './shopping-List.styles.scss';
 
 const ShoppingList = ({ ShopItemList }) => {
     return (
-        ShopItemList  &&  ShopItemList.length > 0 ?  ShopItemList.map((items) => {
+        <div className ='row'>
+        {ShopItemList  &&  ShopItemList.length > 0 ?  ShopItemList.map((items) => {
             return (
                 <ShoppingListItem key={items.id} items = {items} 
                 cmpType = 'shopItem'
                 />
             )
         })
-        : <div> No Record Found</div>
+        : <div> No Record Found</div>}
+        </div>
     )
 }
 
