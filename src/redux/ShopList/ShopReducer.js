@@ -12,7 +12,8 @@ const INITIALSTATE = {
     cartItems: [],
     cartItemCount: 0,
     totalPrice: 0,
-    totalDiscount: 0
+    totalDiscount: 0,
+    spinnerFlag: false
 }
 
 const shopReducer = (state = INITIALSTATE, action) => {
@@ -60,14 +61,21 @@ const shopReducer = (state = INITIALSTATE, action) => {
                 cartItemTotalDiscount: countRemoveItems.totalDiscount
             }
 
-            case actionTypes.SORT_ITEM:
-                const shopList = state.ShopItemList;
-                const sortedShopList = sortByPassedParameter(shopList, action);
-                return {
-                    ...state,
-                    ShopItemList :  sortedShopList
-                }
-    
+        case actionTypes.SORT_ITEM:
+            const shopList = state.ShopItemList;
+            const sortedShopList = sortByPassedParameter(shopList, action);
+            return {
+                ...state,
+                ShopItemList: sortedShopList
+            }
+
+        case actionTypes.SET_SPINNER_FLAG:
+            console.log(action.payload)
+            return {
+                ...state,
+                spinnerFlag: action.payload
+            }
+
 
         default:
             return state

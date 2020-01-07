@@ -1,9 +1,19 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { connect } from 'react-redux';
 import ShoppingListItem from '../Shopping-Item/Shopping-item.component';
 import './shopping-List.styles.scss';
+import {SetSpinnerFlag} from '../../redux/ShopList/ShopActionCreators'
 
-const ShoppingList = ({ ShopItemList }) => {
+const ShoppingList = ({ ShopItemList, setSpinner}) => {
+    useEffect(() => {
+        setSpinner(true)
+    },[])
+
+    useEffect(() => {
+        if(ShopItemList && ShopItemList.length > 0){
+           setSpinner(false)
+        }
+    },[ShopItemList.length])
     return (
         <div className ='row'>
         {ShopItemList  &&  ShopItemList.length > 0 ?  ShopItemList.map((items) => {
@@ -24,4 +34,10 @@ const mapStateToProps = ({ shop: { ShopItemList } }) => {
     }
 }
 
-export default connect(mapStateToProps)(ShoppingList);
+const mapDispatchToProps = (dispatch) => {
+    return {
+        setSpinner : (flag) => dispatch(SetSpinnerFlag(flag))
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ShoppingList);

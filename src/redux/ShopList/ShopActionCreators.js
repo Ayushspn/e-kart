@@ -6,12 +6,16 @@ const ShopListSuccess = shopList => ({
     payload: shopList
   });
 
+  export const   SetSpinnerFlag = spinnerFlag => ({
+    type: actionTypes.SET_SPINNER_FLAG,
+    payload: spinnerFlag
+  });
+
 export const fetchShopList = () => {
     return dispatch => {
         fetch(apiURL.fetchCartItemsURL)
         .then(response => response.json())
         .then(data => {
-            console.log(data)
             dispatch(ShopListSuccess(data));
         }
         )
