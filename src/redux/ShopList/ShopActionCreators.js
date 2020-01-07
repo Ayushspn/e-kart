@@ -28,3 +28,8 @@ export const addedItem = (cartItem, parameter) => ({
   type: actionTypes.ADD_ITEM,
   value: {cartItem, parameter}
 })
+
+export const removedItem = (cartItem) => ({
+  type: actionTypes.REMOVE_ITEM,
+  payload : cartItem
+})

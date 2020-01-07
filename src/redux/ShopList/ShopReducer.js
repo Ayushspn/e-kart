@@ -1,5 +1,5 @@
 import * as actionTypes from './ShopList.action.types'
-import { apllyUtilityRange, apllyUtilityAdditem, apllyUtilityTotalItemCount } from './ShopUtility';
+import { apllyUtilityRange, apllyUtilityAdditem, apllyUtilityTotalItemCount, removeItem } from './ShopUtility';
 const INITIALSTATE = {
     ShopItemList: [],
     copyShopItemList: [],
@@ -35,6 +35,19 @@ const shopReducer = (state = INITIALSTATE, action) => {
                 cartItems : addItemToCart, 
                 cartItemCount : countItems
             }
+
+            case actionTypes.REMOVE_ITEM:
+                let countRemoveItems = 0;
+                const removedItems = removeItem(state.cartItems, action.payload);
+                if(removedItems && removedItems.length > 0){
+                    countRemoveItems =  apllyUtilityTotalItemCount(removedItems);
+                }
+                return {
+                    ...state,
+                    cartItems : removedItems, 
+                    cartItemCount : countRemoveItems
+                }
+    
 
         default:
             return state

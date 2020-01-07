@@ -1,18 +1,24 @@
 import React from 'react';
 import './shopping-item.styles.scss'
 import { connect } from 'react-redux';
-import { addedItem } from '../../redux/ShopList/ShopActionCreators';
-const ShoppingListItem = ({ items, addItemToCart, cmpType }) => {
+import { addedItem, removedItem } from '../../redux/ShopList/ShopActionCreators';
+const ShoppingListItem = ({ items, addItemToCart, cmpType, removeItem }) => {
     console.log(items);
     const { id, name, price, img_url, category, discount } = items;
 
     const addRemoveItem = (event) => {
-        event.target.value > items.quantity ? 
-        addItemToCart(items, 'addItem') : 
-        addItemToCart(items, 'removeItem');
+        event.target.value > items.quantity ?
+            addItemToCart(items, 'addItem') :
+            addItemToCart(items, 'removeItem');
 
 
     }
+
+    const removeItemFromCart= (item) => {
+        removeItem(item)
+    }
+
+
     return (
         <div className="card">
             <img src={img_url} alt='produc-image' style={{ width: '100%' }} />
@@ -28,7 +34,12 @@ const ShoppingListItem = ({ items, addItemToCart, cmpType }) => {
                 </p>
                 {
                     cmpType === 'shopItem' ? <button onClick={() => addItemToCart(items, 'addItem')}>Add To Cart</button> :
-                        <input type='number' value={items.quantity} nim='0' onChange={(event) => addRemoveItem(event)} />
+                        (
+                            <div>
+                                <input type='number' value={items.quantity} nim='0' onChange={(event) => addRemoveItem(event)} />
+                                <button className='cart-button' onClick={() => removeItemFromCart(items)}><i className="fa fa fa-trash" aria-hidden="true"></i></button>
+                            </div>
+                        )
                 }
 
 
@@ -39,7 +50,8 @@ const ShoppingListItem = ({ items, addItemToCart, cmpType }) => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        addItemToCart: (shopItem, parameter) => dispatch(addedItem(shopItem, parameter))
+        addItemToCart: (shopItem, parameter) => dispatch(addedItem(shopItem, parameter)),
+        removeItem: (shopItem) => dispatch(removedItem(shopItem))
     }
 }
 

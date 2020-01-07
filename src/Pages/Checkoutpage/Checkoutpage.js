@@ -7,7 +7,9 @@ const CheckOutPage = ({cartItems, cartItemCount}) => {
     return (
         
         <div>
-            {cartItems && cartItems.map((cartItem) => (<ShoppingListItem id = {cartItem.id} items = {cartItem}></ShoppingListItem>))}
+            {cartItems  && cartItems.length > 0  ?  cartItems.map((cartItem) => (<ShoppingListItem id = {cartItem.id} items = {cartItem}></ShoppingListItem>))
+            : <div>Please add Item to Cart</div>
+            }
         </div>
     )
 }

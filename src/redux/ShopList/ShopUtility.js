@@ -40,3 +40,16 @@ export const  apllyUtilityTotalItemCount = (addItem) => {
 
     return quantity;
 }
+
+
+export const removeItem = (cartItems, removedItem) => {
+    console.log(removedItem)
+    const copyCartItems = [...cartItems]
+    const existingItem = copyCartItems.findIndex((shopListItem) => shopListItem.id === removedItem.id )
+
+    if(existingItem >-1){
+        copyCartItems.splice(existingItem, 1);
+    }
+    
+    return copyCartItems
+}
