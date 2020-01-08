@@ -19,17 +19,20 @@ const ShoppingListItem = ({ items, addItemToCart, cmpType, removeItem }) => {
         <div className="card">
             <img src={img_url} alt='produc-image' style={{ width: '100%' }} />
             <div className="container">
-                <h4><b>{name}</b></h4>
-                <p>
+                <h4 className = 'cart-item-name'>{name}</h4>
+                <div className='cart-details-container'>
                     <span>
-                        <span>&#x20b9; {price} </span>
+                        &#x20b9; {price}
                     </span>
-                    <span>
-                        {discount} %
+                    <span className='add-padding'>
+                        {price /100*discount} 
                     </span>
-                </p>
+                    <span className='add-padding' style = {{'color' : 'green'}}>
+                        <b>{discount} % Off</b>
+                    </span>
+                </div>
                 {
-                    cmpType === 'shopItem' ? <button onClick={() => addItemToCart(items, 'addItem')}>Add To Cart</button> :
+                    cmpType === 'shopItem' ? <button className ='add-to-cart-btn' onClick={() => addItemToCart(items, 'addItem')}>Add To Cart</button> :
                         (
                             <div>
                                 <input type='number' value={items.quantity} nim='0' onChange={(event) => addRemoveItem(event)} />

@@ -3,7 +3,9 @@ import React, { useEffect, useState } from 'react';
 import ShoppingList from '../../Components/Shopping-List/Shopping-List.component';
 import FilterShoppingList from '../../Components/Filter-shopping-List/Filter-shopping-List';
 import Spinner from '../../Components/HOC/spinner/spinner.component'
+
 import { connect } from 'react-redux';
+import './Hompage.modules.scss';
 import { fetchShopList, ApplyFilter } from '../../redux/ShopList/ShopActionCreators';
 import {SetSpinnerFlag} from '../../redux/ShopList/ShopActionCreators'
 
@@ -34,14 +36,16 @@ const HomePage = ({ getShoppingList, filterShoppingList, setSpinnerFlag , spinne
         <Spinner isLoading= {spinnerStatus}></Spinner>
         <div className ='row main-container'>
             <div className ='col-md-3 col-lg-3'>
-                <div style = {{'textAlign' : 'center'}}>Filter</div>
+                <div className ='filter-text'><b>Filter</b></div>
                 <FilterShoppingList
                     minRangeChangeHandler={(event) => getMinRangeValue(event)}
                     minValue={minValue}
                     maxValue={maxValue}
                     maxRangeChangelHandler={(event) => getMaxRangeValue(event)}
                 ></FilterShoppingList>
-                <button onClick={() => applyRangeFilter()}> Apply Range</button>
+                <div className ='apply-btn-container'>
+                <button onClick={() => applyRangeFilter()} className='apply-rng-btn'> Apply Range</button>
+                </div>
             </div>
             <div className ='col-md-9 col-lg-9'>
                 <ShoppingList></ShoppingList>

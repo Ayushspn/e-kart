@@ -1,3 +1,20 @@
 .homeContainer{
     display : flex;
 }
+
+.filter-text{
+    text-align : 'left';
+    margin-top: -21px;
+    padding-left: 12px;
+}
+
+.apply-btn-container{
+    text-align: center;
+}
+.apply-rng-btn{
+    border-radius: 16px;
+    border: none;
+    padding: 8px;
+    background: cornflowerblue;
+    color: white;
+}

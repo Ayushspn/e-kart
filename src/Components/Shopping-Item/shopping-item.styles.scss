@@ -3,8 +3,30 @@
     padding: 16px;
     text-align: center;
     background-color: #f1f1f1;
-    width: 18%;
     display: inline-block;
     margin: 10px;
+    width: 24%;
+  }
+
+  .add-to-cart-btn {
+    border-radius: 16px;
+    border: none;
+    padding: 8px;
+    background: #c8ca63;
+    color: black;
+  }
+
+  .cart-item-name{
+    text-align: left;
+    color: gray;
+  }
+
+  .add-padding{
+    padding-left: 7px;
+  }
+
+  .cart-details-container {
+    margin-bottom: 16px;
+    margin-left: -18px;
   }
  
