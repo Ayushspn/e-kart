@@ -18,8 +18,10 @@ const Search = ({searchForTitle, history}) => {
     return (
         <div className ='search-icon'>
             {history.location.pathname === '/' ? 
-            <><input className ='form-control search-box' type='search' value = {searchTxt} onChange = {(event) => inputChangeHandle(event)}></input>
-            <button><i class="fa fa-search" aria-hidden="true"></i></button></>
+            <><input className ='form-control search-box' type='search' value = {searchTxt} onChange = {(event) => inputChangeHandle(event)}
+            placeholder ='search by title'
+            ></input>
+            <button className ='serach-button'><i class="fa fa-search" aria-hidden="true"></i></button></>
              : null}
         </div>
     )

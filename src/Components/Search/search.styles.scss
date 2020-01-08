@@ -1,9 +1,19 @@
 .search-icon{
     width : 83%;
     display: inline-block;
+    position: relative;
+    top: -11px;
+    left: 33px;
 }
 
 .search-box{
     width : 80% !important;
     display: inline-block !important;
+}
+
+.serach-button{
+    position: relative;
+    right: 31px;
+    background-color: white;
+    border: none;
 }
