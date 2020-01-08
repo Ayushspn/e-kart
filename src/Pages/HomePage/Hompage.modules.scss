@@ -18,3 +18,42 @@
     background: cornflowerblue;
     color: white;
 }
+
+.desctop-display__none{
+    display: none;
+}
+
+
+@media only screen and (max-width: 600px) {
+  
+    .mobile-display__none{
+      display: none;
+    }
+    .filter-sort-mobile{
+        min-height: 20px;
+    background-color: #9fb9e8;
+    max-width: 94%;
+    margin: 0 auto;
+    }
+
+    .filter-sort-icon{
+        width: 50%;
+    display: inline-block;
+    text-align: center;
+    font-size: 25px;
+    color: white;
+    cursor: pointer;
+    }
+
+    .desctop-display__none{
+        display: block;
+    }
+
+    .apply-rng-btn__modal{
+        width : 50%;
+        padding: 6px;
+    border: none;
+    background: transparent;
+    }
+    
+  }

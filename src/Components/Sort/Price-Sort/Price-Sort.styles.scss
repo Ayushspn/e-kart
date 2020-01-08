@@ -16,3 +16,21 @@
     border-bottom: 1px solid cornflowerblue !important
 }
 
+.desctop-display__none{
+    display: none;
+}
+
+
+@media only screen and (max-width: 600px) {
+  
+    .mobile-display__none{
+      display: none;
+    }
+
+    .apply_btn__position {
+        position: absolute;
+        top: 155px;
+        left: 123px;
+    }
+  }
+
