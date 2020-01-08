@@ -14,7 +14,7 @@ const CartDetails = ({ cartItemTotalDiscount, cartItemTotalPrice, cartItemCount 
             </div>
 
             <div className='container '>
-                <b>Total Payable</b> : <span>{cartItemTotalPrice - cartItemTotalDiscount}</span>
+                <b>Total Payable</b> : <span>{cartItemTotalPrice - (cartItemTotalDiscount)}</span>
             </div>
             </div>
         </div>

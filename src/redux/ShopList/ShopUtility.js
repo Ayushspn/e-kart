@@ -38,7 +38,7 @@ export const  apllyUtilityTotalItemCount = (addItem) => {
     addItem.reduce((accumulatedItems, items) => {
         quantity = quantity + items.quantity;
         totalPrice = totalPrice + items.quantity* items.price;
-        totalDiscount = totalDiscount + (items.price/100)* items.discount;
+        totalDiscount = totalDiscount + items.quantity * ((items.price/100)* items.discount);
     }, 0)
     return {quantity, totalPrice, totalDiscount};
 }
@@ -92,6 +92,5 @@ export const searchByTitle = (shopList, searchString) => {
    const filteredShopList=  copyCartList.filter((copyCartListItem) => {
         return (copyCartListItem.name.toLowerCase().includes(searchStringToLowerCase))
     })
-    console.log(filteredShopList)
     return filteredShopList;
 }
