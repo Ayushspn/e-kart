@@ -1,0 +1,18 @@
+.price-sort-container {
+    display : inline-block;
+    margin-left: 20px
+
+}
+.price-sort__button{
+    background: none;
+    border: none;
+    color: gray;
+
+}
+
+.active{
+    color: cornflowerblue;
+    border: none !important;
+    border-bottom: 1px solid cornflowerblue !important
+}
+
