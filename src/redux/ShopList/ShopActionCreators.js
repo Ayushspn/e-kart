@@ -43,3 +43,9 @@ export const sortItems = (parameter) => ({
   type: actionTypes.SORT_ITEM,
   payload : parameter
 })
+
+
+export const searchTitle = (searchString) => ({
+  type: actionTypes.SEARCH_STRING,
+  payload : searchString
+})

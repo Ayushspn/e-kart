@@ -83,3 +83,15 @@ export const sortByPassedParameter = (shopList, action) => {
 });
 return copyShopList;
 }
+
+
+export const searchByTitle = (shopList, searchString) => {
+    const searchStringToLowerCase =  searchString.payload.toLowerCase();
+    debugger
+    const copyCartList = [...shopList];
+   const filteredShopList=  copyCartList.filter((copyCartListItem) => {
+        return (copyCartListItem.name.toLowerCase().includes(searchStringToLowerCase))
+    })
+    console.log(filteredShopList)
+    return filteredShopList;
+}

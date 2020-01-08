@@ -4,7 +4,7 @@ import {
     apllyUtilityTotalItemCount,
     removeItem,
     sortByPassedParameter,
-    calculateTotlPriceDiscount
+    searchByTitle
 } from './ShopUtility';
 const INITIALSTATE = {
     ShopItemList: [],
@@ -70,10 +70,17 @@ const shopReducer = (state = INITIALSTATE, action) => {
             }
 
         case actionTypes.SET_SPINNER_FLAG:
-            console.log(action.payload)
             return {
                 ...state,
                 spinnerFlag: action.payload
+            }
+        
+        case actionTypes.SEARCH_STRING:
+            const searchShopList = state.copyShopItemList;
+            const searchedShopList = searchByTitle(searchShopList, action);
+            return {
+                ...state,
+                ShopItemList: searchedShopList
             }
 
 

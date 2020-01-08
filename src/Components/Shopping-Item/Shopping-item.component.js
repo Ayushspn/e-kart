@@ -4,13 +4,10 @@ import { connect } from 'react-redux';
 import { addedItem, removedItem } from '../../redux/ShopList/ShopActionCreators';
 const ShoppingListItem = ({ items, addItemToCart, cmpType, removeItem }) => {
     const { id, name, price, img_url, category, discount } = items;
-
     const addRemoveItem = (event) => {
         event.target.value > items.quantity ?
             addItemToCart(items, 'addItem') :
             addItemToCart(items, 'removeItem');
-
-
     }
 
     const removeItemFromCart= (item) => {
@@ -19,7 +16,7 @@ const ShoppingListItem = ({ items, addItemToCart, cmpType, removeItem }) => {
 
 
     return (
-        <div className="card col-md-3 col-lg-3">
+        <div className="card">
             <img src={img_url} alt='produc-image' style={{ width: '100%' }} />
             <div className="container">
                 <h4><b>{name}</b></h4>
