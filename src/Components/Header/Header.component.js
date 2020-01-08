@@ -18,7 +18,7 @@ const Header = ({cartCount, history}) => {
             <div className="col-md-4 col-sm-10 col-sx-10">
                 <Search/>
                 <div className='cart-icon'>
-                <button className ='cart-button pull-right' onClick = {() => redirectTocartPage()}><i className="fa fa-shopping-cart" aria-hidden="true"><span className ='cartItem'>{cartCount}</span></i></button>
+                <button className ='cart-button pull-right' onClick = {() => redirectTocartPage()}><i className="fa fa-shopping-cart" aria-hidden="true"><span className ='cartItem'>{cartCount || 0}</span></i></button>
                 </div>
             </div>
         </div>
