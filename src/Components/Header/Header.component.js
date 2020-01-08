@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './Header.styles.scss';
 import {connect} from 'react-redux';
 import {withRouter, Link} from 'react-router-dom';
@@ -8,6 +8,8 @@ const Header = ({cartCount, history}) => {
     const redirectTocartPage = () => {
         history.push('CheckOut')
     }
+
+    
     return (
         <div className="header row">
             <div className="col-md-8">
