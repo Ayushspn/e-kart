@@ -29,4 +29,34 @@
     margin-bottom: 16px;
     margin-left: -18px;
   }
+
+  .card-img{
+    max-height: 205px;
+  }
+
+  .card_change_width {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    padding: 16px;
+    text-align: center;
+    background-color: #ffffff;
+    display: inline-block;
+    margin: 10px !important;
+    width: 100%;
+  }
+
+  .card_change_txt_align {
+    text-align: left;
+    padding-left: 20px;
+  }
+
+  .cart_item_quantity_txt_align {
+    text-align: left;
+  }
+
+  .cart-button_change {
+    background-color: #9fb9e8 !important;
+    width: 40% !important;
+    margin-left: 20px;
+  }
  
+  

@@ -63,10 +63,20 @@ const shopReducer = (state = INITIALSTATE, action) => {
 
         case actionTypes.SORT_ITEM:
             const shopList = state.ShopItemList;
-            const sortedShopList = sortByPassedParameter(shopList, action);
-            return {
-                ...state,
-                ShopItemList: sortedShopList
+            if (action.payload && action.payload.length > 1) {
+                const sortedShopList = sortByPassedParameter(shopList, action);
+                return {
+                    ...state,
+                    ShopItemList: sortedShopList
+                }
+            }
+            else {
+                const resetSortBy = [...state.copyShopItemList]
+                return {
+                    ...state, 
+                    ShopItemList: resetSortBy
+
+                }
             }
 
         case actionTypes.SET_SPINNER_FLAG:
@@ -74,7 +84,7 @@ const shopReducer = (state = INITIALSTATE, action) => {
                 ...state,
                 spinnerFlag: action.payload
             }
-        
+
         case actionTypes.SEARCH_STRING:
             const searchShopList = state.copyShopItemList;
             const searchedShopList = searchByTitle(searchShopList, action);

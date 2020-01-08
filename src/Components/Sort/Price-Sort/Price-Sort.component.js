@@ -17,6 +17,7 @@ const PriceSort = ({sortShopItems}) => {
             <button className ={`${activeClass === 'HIGH_TO_LOW'? 'active' : null} price-sort__button`} onClick = {() => sortAndSetActiveClass('HIGH_TO_LOW') }> PRICE HIGH TO LOW</button>
             <button className ={`${activeClass === 'LOW_TO_HIGH'? 'active' : null} price-sort__button`} onClick = {() => sortAndSetActiveClass('LOW_TO_HIGH')}> PRICE LOW TO HIGH</button>
             <button className ={`${activeClass === 'SORT_BY_DISCOUNT'? 'active' : null} price-sort__button`} onClick = {() => sortAndSetActiveClass('SORT_BY_DISCOUNT')}> DISCOUNT</button>
+            <button className = 'price-sort__button' onClick = {() => sortAndSetActiveClass(' ')}> RESET</button>
         </div>
     )
 }

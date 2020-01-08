@@ -18,12 +18,15 @@ const ShoppingList = ({ ShopItemList, setSpinner}) => {
         <div className ='row'>
         {ShopItemList  &&  ShopItemList.length > 0 ?  ShopItemList.map((items) => {
             return (
-                <ShoppingListItem key={items.id} items = {items} 
+                <ShoppingListItem 
+                key={items.id} 
+                items = {items}
+                type = 'shoppingItem' 
                 cmpType = 'shopItem'
                 />
             )
         })
-        : <div> No Record Found</div>}
+        : <div className ='no-records'> No Record Found</div>}
         </div>
     )
 }
